@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jannis Pattern</title>
+
+  <!-- [BLOCK A] CSS EINBINDEN -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Erwartet deine vorhandene style.css (Layout, Typo, Panels etc.) -->
+</head>
+
+<body>
+  <!-- [BLOCK B] HEADER + NAVIGATION -->
+  <header>
+    <div class="header-content">
+      <!-- Titel/Logo links -->
+      <div class="logo">Jannis Pattern Generator</div>
+
+      <!-- Navigation mittig -->
+      <nav>
+        <a href="index.html">Startseite</a>
+        <a href="ziele.html">Ziele</a>
+        <a href="geheim.html">Geheim</a>
+        <a href="copyyourshirt.html">Copy your shirt</a>
+        <a href="dein-avatar.html">Dein Avatar</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- [BLOCK C] HAUPTBEREICH / WORKSPACE (3 Spalten) -->
+  <main>
+    <div class="workspace">
+      <!-- [C1] LINKES PANEL: PUNKT-EINGABEN -->
+      <div class="points-input">
+        <h4>Punkte (x / y in mm)</h4>
+
+        <!-- Sechs Koordinatenpunkte P1..P6 -->
+        <div><label>P1:</label> <input id="p1x" type="number" value="20" /> <input id="p1y" type="number" value="0" /></div>
+        <div><label>P2:</label> <input id="p2x" type="number" value="0" />  <input id="p2y" type="number" value="410" /></div>
+        <div><label>P3:</label> <input id="p3x" type="number" value="55" /> <input id="p3y" type="number" value="665" /></div>
+        <div><label>P4:</label> <input id="p4x" type="number" value="190" /> <input id="p4y" type="number" value="720" /></div>
+        <div><label>P5:</label> <input id="p5x" type="number" value="290" /> <input id="p5y" type="number" value="610" /></div>
+        <div><label>P6:</label> <input id="p6x" type="number" value="290" /> <input id="p6y" type="number" value="0" /></div>
+
+        <!-- Bedien-Buttons unter den Eingaben -->
+        <div class="control-buttons" style="margin-top: 20px;">
+          <button onclick="updatePolygon()">Aktualisieren</button>
+          <button onclick="resetInputs()">Reset Maße</button>
+        </div>
+      </div>
+
+      <!-- [C2] MITTLERES PANEL: SVG-VORSCHAU -->
+      <div class="preview-panel">
+        <!--
+          Wir verwenden ein "mm-Koordinatensystem":
+          viewBox = 0..300 (x), 0..1000 (y)
+          Das <g id="world"> flippt die SVG-Y-Achse, sodass Y "nach oben" wächst.
+          width/height sind reine Anzeige-Pixel (kannst du nach Wunsch anpassen).
+        -->
+        <svg id="mySvg"
+             width="450"
+             height="600"
+             viewBox="0 0 300 1000"
+             preserveAspectRatio="xMidYMid meet">
+          <g id="world" transform="translate(0,1000) scale(1,-1)"></g>
+        </svg>
+      </div>
+
+      <!-- [C3] RECHTES PANEL: PYTHON-CODE -->
+      <div class="python-panel">
+        <h3>Python-Code für CLO 3D</h3>
+        <!-- readonly: der Inhalt wird per JS gesetzt -->
+        <textarea id="pythonCode" readonly></textarea>
+        <button onclick="copyPythonCode()">📋 Code kopieren</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- [BLOCK D] FOOTER -->
+  <footer>
+    © 2025 Jannis Rolle – SVG Lernprojekt
+  </footer>
+
+  <!-- [BLOCK E] JAVASCRIPT EINBINDEN -->
+  <script src="js/script.js"></script>
+  <!-- Hinweis: script.js enthält die bereinigten Blöcke (Helpers, Polygon, Avatar, Bootstrap).
+       Beim Laden ruft Bootstrap -> resetInputs() auf (sofortige Anzeige von SVG + Python). -->
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Geschützte Seite (Demo)</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>🔒 Geschützter Bereich</h1>
+  </header>
+
+  <main>
+    <div id="loginBox">
+      <p>Bitte Passwort eingeben:</p>
+      <input type="password" id="pwInput" placeholder="Passwort">
+      <button onclick="checkPassword()">Anmelden</button>
+      <p id="msg" style="color:red;"></p>
+    </div>
+
+    <div id="secretContent" style="display:none;">
+      <h2>Willkommen!</h2>
+      <p>Hier könnte dein geheimer Inhalt stehen 😄</p>
+    </div>
+  </main>
+
+  <script>
+    function checkPassword() {
+      const pw = document.getElementById("pwInput").value.trim();
+      // ➜ Kein echtes Passwortsystem! Nur lokale Demo.
+      if (pw === "Jannis 123") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("secretContent").style.display = "block";
+      } else {
+        document.getElementById("msg").textContent = "Falsches Passwort!";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Dein Avatar – Jannis Pattern</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Header mit Navigation -->
+  <header>
+    <div class="header-content">
+      <div class="logo">Jannis Pattern Generator</div>
+      <nav>
+        <a href="index.html">Startseite</a>
+        <a href="ziele.html">Ziele</a>
+        <a href="dein-avatar.html">Dein Avatar</a>
+      </nav>
+      <button id="themeToggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+    </div>
+  </header>
+
+  <!-- Hauptinhalt -->
+  <main class="textpage">
+    <h1>Dein Avatar</h1>
+    <p>Hier kannst du deine grundlegenden Körpermaße eingeben.  
+       Diese Werte werden später zur Berechnung deines individuellen Schnittmusters verwendet.</p>
+
+    <form id="avatarForm">
+      <label for="heightInput">Körpergröße (cm):</label><br>
+      <input type="number" id="heightInput" placeholder="z. B. 180" required><br><br>
+
+      <label for="weightInput">Gewicht (kg):</label><br>
+      <input type="number" id="weightInput" placeholder="z. B. 75" required><br><br>
+
+     <button type="button" onclick="determinePatternSize()">Größe berechnen</button>
+  <button type="reset">Zurücksetzen</button>
+
+    </form>
+
+    <p id="avatarMessage" style="margin-top:15px; font-weight:bold;"></p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Jannis Rolle – SVG Lernprojekt
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
