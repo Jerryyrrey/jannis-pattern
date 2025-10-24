@@ -126,11 +126,15 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* === Rechte Seite: SVG === */
+/* === Rechte Seite: SVG-Vorschau === */
 svg {
   border: 1px solid #ccc;
-  background-color: #fff;
+  background-color: rgba(240,240,240,0.9); /* leicht transparentes Grau */
+  backdrop-filter: blur(1px);
+  border-radius: 8px;
+  transition: background-color .3s ease;
 }
+
 
 /* === Navigation im Header === */
 nav {
@@ -353,5 +357,6 @@ body.dark-mode #themeToggle {
 .controls button:last-child:hover {
   background-color: #666;
 }
+
 
 
